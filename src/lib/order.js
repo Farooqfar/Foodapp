@@ -1,6 +1,6 @@
 import { User } from "lucide-react";
 import mongoose from "mongoose";
-mongoose.connect("mongodb://localhost:27017/foodapps")
+mongoose.connect("mongodb+srv://info4895:pnvXvEukLylmxJes@cluster0.nkomlwr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 const orderSchema = mongoose.Schema({
     fullname: String,
     food: String,
@@ -8,7 +8,7 @@ const orderSchema = mongoose.Schema({
     phone: Number,
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref:" User"
+        ref: " User"
     }
 })
 

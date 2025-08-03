@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-mongoose.connect("mongodb://localhost:27017/foodapps")
+mongoose.connect("mongodb+srv://info4895:pnvXvEukLylmxJes@cluster0.nkomlwr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 const postSchema = new mongoose.Schema({
     fullname: String,
     description: String,
