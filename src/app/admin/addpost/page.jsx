@@ -1,9 +1,9 @@
 "use client"
 import { useState } from "react"
 import axios from "axios"
-import {useRouter} from "next/navigation"
+import { useRouter } from "next/navigation"
 export default function addDish() {
-const router = useRouter()
+    const router = useRouter()
     const [post, setPost] = useState({
         fullname: "",
         description: "",
@@ -22,6 +22,7 @@ const router = useRouter()
         setPost((prev) => ({ ...prev, image: file }))
     }
 
+    // In your handleForm function, add headers:
     const handleForm = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -29,16 +30,25 @@ const router = useRouter()
         formData.append("description", post.description);
         formData.append("price", post.price);
         formData.append("image", post.image);
-        try{
 
-           let data =  await axios.post("https://foodapp-pi-three.vercel.app//api/upload" , formData)
-           if(data)
-           {
-            router.push("/admin")
-           }
-        }catch(error)
-        {
-            return error
+        try {
+            const response = await axios.post(
+                "https://foodapp-pi-three.vercel.app/api/upload",
+                formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                    withCredentials: true // if using cookies/sessions
+                }
+            );
+
+            if (response.data) {
+                router.push("/admin");
+            }
+        } catch (error) {
+            console.error("Upload error:", error);
+            alert(`Upload failed: ${error.response?.data?.message || error.message}`);
         }
     }
     return (
