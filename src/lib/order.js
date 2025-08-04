@@ -1,6 +1,7 @@
 import { User } from "lucide-react";
 import mongoose from "mongoose";
-mongoose.connect("mongodb+srv://info4895:pnvXvEukLylmxJes@cluster0.nkomlwr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect("mongodb+srv://info4895:yxOsxzOWRxNF5tlP@foodapp.3olxdpi.mongodb.net/?retryWrites=true&w=majority&appName=foodapp")
+
 const orderSchema = mongoose.Schema({
     fullname: String,
     food: String,
