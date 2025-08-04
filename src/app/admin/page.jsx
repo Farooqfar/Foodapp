@@ -8,20 +8,20 @@ export default function Admin() {
   const [post, setPost] = useState([]);
 
   const handleApi = async () => {
-    let { data } = await axios.get("https://foodapp-git-main-farooqs-projects-f073550d.vercel.app/api/upload");
+    let { data } = await axios.get("https://foodapp-pi-three.vercel.app/api/upload");
     setPost(data.allPost)
   }
-  const handleDeleteBtn=async(id)=>{
-  
-  let update = await axios.delete("https://foodapp-git-main-farooqs-projects-f073550d.vercel.app/api/upload",{data:{id}})
-setPost(post.filter((item)=> item._id !== id))
+  const handleDeleteBtn = async (id) => {
+
+    let update = await axios.delete("https://foodapp-pi-three.vercel.app/api/upload", { data: { id } })
+    setPost(post.filter((item) => item._id !== id))
   }
-  
+
   useEffect(() => {
     handleApi()
 
   }, [])
- 
+
   return (
     <main className="min-h-screen w-screen bg-gray-100 p-6 flex justify-center items-start">
       <div className="w-full max-w-6xl bg-white rounded-lg shadow-lg p-4 overflow-x-auto">
@@ -76,7 +76,7 @@ setPost(post.filter((item)=> item._id !== id))
                     </button>
                   </td>
                   <td className="p-3 border text-center">
-                    <button onClick={()=>handleDeleteBtn(items._id)} className="px-3 py-1 bg-red-500 text-white text-sm rounded-md hover:bg-red-600">
+                    <button onClick={() => handleDeleteBtn(items._id)} className="px-3 py-1 bg-red-500 text-white text-sm rounded-md hover:bg-red-600">
                       Delete
                     </button>
                   </td>

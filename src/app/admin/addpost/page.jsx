@@ -31,7 +31,7 @@ export default function addDish() {
         formData.append("image", post.image);
         try {
 
-            let data = await axios.post("https://foodapp-git-main-farooqs-projects-f073550d.vercel.app/api/upload", formData)
+            let data = await axios.post("https://foodapp-pi-three.vercel.app/api/upload", formData)
             if (data) {
                 router.push("/admin")
             }
