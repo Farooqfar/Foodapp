@@ -2,18 +2,18 @@
 import ImageCursorTrail from "@/components/ui/image-cursortrail"
 
 import Card from './../_components/Card';
-import {useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"
 
 export default function foodlover() {
-  const [post , setPost] = useState([]);
-  const handlePost=async()=>{
-    let { data } = await axios.get("https://foodapp-fh8em8hss-farooqs-projects-f073550d.vercel.app/api/upload");
-        setPost(data.allPost)
+  const [post, setPost] = useState([]);
+  const handlePost = async () => {
+    let { data } = await axios.get("https://foodapp-pi-three.vercel.app/api/upload");
+    setPost(data.allPost)
   }
-  useEffect(()=>{
+  useEffect(() => {
     handlePost()
-  },[])
+  }, [])
 
   const images = [
     "https://images.pexels.com/photos/784633/pexels-photo-784633.jpeg",
@@ -51,14 +51,14 @@ export default function foodlover() {
       </div>
       <div className="w-screen bg-white flex flex-wrap items-center justify-center  gap-5 mt-5 mb-5 overflow-hidden min-h-[80%]">
         {
-          post.map((item)=>{
-            return(
+          post.map((item) => {
+            return (
               <Card item={item} key={item._id} />
             )
           })
         }
 
-        
+
 
 
       </div>

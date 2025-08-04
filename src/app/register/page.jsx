@@ -21,11 +21,10 @@ export default function resturant() {
     if (signup.password !== signup.confirmPassword) {
       alert("password must be same");
     }
-    try{
+    try {
 
-      let data = await axios.post("http://localhost:3000/api/register", signup)
-    }catch(error)
-    {
+      let data = await axios.post("https://foodapp-pi-three.vercel.app/api/register", signup)
+    } catch (error) {
       alert("user already exist")
       return
     }

@@ -17,17 +17,15 @@ export default function resturant() {
     let { name, value } = e.target;
     setLogin((prev) => ({ ...prev, [name]: value }));
   };
-  const handleForm =async (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
-    try{
+    try {
 
-      let data = await axios.post("https://foodapp-fh8em8hss-farooqs-projects-f073550d.vercel.app/api/login" , login)
-      if(data)
-      {
+      let data = await axios.post("https://foodapp-pi-three.vercel.app/api/login", login)
+      if (data) {
         router.push("/foodlover")
       }
-    }catch(error)
-    {
+    } catch (error) {
       alert("email or password invalid")
       return error
     }
