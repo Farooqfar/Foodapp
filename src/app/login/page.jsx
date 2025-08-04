@@ -21,7 +21,7 @@ export default function resturant() {
     e.preventDefault();
     try{
 
-      let data = await axios.post("http://localhost:3000/api/login" , login)
+      let data = await axios.post("https://foodapp-fh8em8hss-farooqs-projects-f073550d.vercel.app/api/login" , login)
       if(data)
       {
         router.push("/foodlover")

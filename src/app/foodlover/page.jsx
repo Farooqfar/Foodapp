@@ -8,7 +8,7 @@ import axios from "axios"
 export default function foodlover() {
   const [post , setPost] = useState([]);
   const handlePost=async()=>{
-    let { data } = await axios.get("http://localhost:3000/api/upload");
+    let { data } = await axios.get("https://foodapp-fh8em8hss-farooqs-projects-f073550d.vercel.app/api/upload");
         setPost(data.allPost)
   }
   useEffect(()=>{

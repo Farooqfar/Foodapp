@@ -8,12 +8,12 @@ export default function Admin() {
   const [post, setPost] = useState([]);
 
   const handleApi = async () => {
-    let { data } = await axios.get("http://localhost:3000/api/upload");
+    let { data } = await axios.get("https://foodapp-git-main-farooqs-projects-f073550d.vercel.app/api/upload");
     setPost(data.allPost)
   }
   const handleDeleteBtn=async(id)=>{
   
-  let update = await axios.delete("http://localhost:3000/api/upload",{data:{id}})
+  let update = await axios.delete("https://foodapp-git-main-farooqs-projects-f073550d.vercel.app/api/upload",{data:{id}})
 setPost(post.filter((item)=> item._id !== id))
   }
   

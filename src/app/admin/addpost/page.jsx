@@ -1,9 +1,9 @@
 "use client"
 import { useState } from "react"
 import axios from "axios"
-import {useRouter} from "next/navigation"
+import { useRouter } from "next/navigation"
 export default function addDish() {
-const router = useRouter()
+    const router = useRouter()
     const [post, setPost] = useState({
         fullname: "",
         description: "",
@@ -29,15 +29,13 @@ const router = useRouter()
         formData.append("description", post.description);
         formData.append("price", post.price);
         formData.append("image", post.image);
-        try{
+        try {
 
-           let data =  await axios.post("http://localhost:3000/api/upload" , formData)
-           if(data)
-           {
-            router.push("/admin")
-           }
-        }catch(error)
-        {
+            let data = await axios.post("https://foodapp-git-main-farooqs-projects-f073550d.vercel.app/api/upload", formData)
+            if (data) {
+                router.push("/admin")
+            }
+        } catch (error) {
             return error
         }
     }

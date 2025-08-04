@@ -23,7 +23,7 @@ export default function Order() {
         e.preventDefault();
         try {
 
-            let data = await axios.post("http://localhost:3000/api/order", order)
+            let data = await axios.post("https://foodapp-fh8em8hss-farooqs-projects-f073550d.vercel.app/api/order", order)
             if (data) {
 
                 router.push("/orderhistory")

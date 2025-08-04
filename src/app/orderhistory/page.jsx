@@ -5,7 +5,7 @@ import { React, useState, useEffect } from 'react'
 export default function page() {
     const [order, setOrder] = useState([])
     const handleOrder = async () => {
-        let { data } = await axios.get("http://localhost:3000/api/order");
+        let { data } = await axios.get("https://foodapp-fh8em8hss-farooqs-projects-f073550d.vercel.app/api/order");
         console.log(data.order)
         setOrder(data.order);
     }
