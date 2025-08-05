@@ -1,8 +1,7 @@
 import { writeFile } from "fs/promises";
-import { NextResponse } from "next/server";
 import Post from "@/lib/post";
 import { NextResponse } from "next/server";
-import Post from "@/lib/post";
+
 
 export async function POST(req) {
     try {
