@@ -22,7 +22,6 @@ export default function addDish() {
         setPost((prev) => ({ ...prev, image: file }))
     }
 
-    // In your handleForm function, add headers:
     const handleForm = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -30,25 +29,14 @@ export default function addDish() {
         formData.append("description", post.description);
         formData.append("price", post.price);
         formData.append("image", post.image);
-
         try {
-            const response = await axios.post(
-                "https://foodapp-pi-three.vercel.app/api/upload",
-                formData,
-                {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                    withCredentials: true // if using cookies/sessions
-                }
-            );
 
-            if (response.data) {
-                router.push("/admin");
+            let data = await axios.post("http://localhost:3000/api/upload", formData)
+            if (data) {
+                router.push("/admin")
             }
         } catch (error) {
-            console.error("Upload error:", error);
-            alert(`Upload failed: ${error.response?.data?.message || error.message}`);
+            return error
         }
     }
     return (

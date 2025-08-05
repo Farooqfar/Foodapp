@@ -29,7 +29,7 @@ export default function page() {
                 </thead>
                 <tbody className="bg-yellow-300">
                     {
-                        order.map((item, index) => {
+                        order?.map((item, index) => {
                             return (<tr key={item._id}>
                                 <td>{index + 1}</td>
                                 <td>{item.fullname}</td>

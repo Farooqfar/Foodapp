@@ -51,7 +51,7 @@ export default function foodlover() {
       </div>
       <div className="w-screen bg-white flex flex-wrap items-center justify-center  gap-5 mt-5 mb-5 overflow-hidden min-h-[80%]">
         {
-          post.map((item) => {
+          post?.map((item) => {
             return (
               <Card item={item} key={item._id} />
             )

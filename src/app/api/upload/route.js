@@ -8,7 +8,7 @@ export async function POST(req) {
     const price = data.get("price")
     const file = data.get("image")
     const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const buffer =await Buffer.from(bytes);
     const path = `./public/${file.name}`
     await writeFile(path, buffer)
     const post = await Post.create({
